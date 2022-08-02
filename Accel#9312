@@ -171,6 +171,6 @@ local args = {
 }
 
 game:GetService("ReplicatedStorage").Events.Upgrade:FireServer(unpack(args))
-end
+wait(0.1)
 end
 end)
