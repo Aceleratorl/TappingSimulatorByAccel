@@ -1,0 +1,176 @@
+local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/bloodball/-back-ups-for-libs/main/sol"))()
+
+local MainWindow = Library:New({ --initialize window
+  Name = "Tapping Simulator| Acelerator#9312", --title gui
+  FolderToSave = "Destiny" --savefolder in workspace
+})
+
+local AutoClick = MainWindow:Tab("Click") -- tab
+local AutoRebirth = MainWindow:Tab("Rebirth") -- tab
+local AutoBuyEggs = MainWindow:Tab("Eggs") -- tab
+local AutoBuyUpgrades = MainWindow:Tab("Upgrades") -- tab
+local Teleport = MainWindow:Tab("Teleport") -- tab
+
+
+local AutoClickSection = AutoClick:Section("AutoClick") --section
+local AutoRebirthSection = AutoRebirth:Section("AutoRebirth") --section
+local AutoBuyEggsSection = AutoBuyEggs:Section("AutoBuyEggs") --section
+local TeleportSection = Teleport:Section("Teleport") --section
+local AutoUpgradesSection = AutoBuyUpgrades:Section("AutoUpgrades") --section
+
+local RebirthCout
+
+
+local toggle = AutoClickSection:Toggle("Auto Click", false,"Toggle", function(Ac)
+    _G.autoClick = Ac
+while _G.autoClick == true do
+	game:GetService("ReplicatedStorage").Events.Tap:FireServer()
+	wait(0.1)
+ end
+end)
+
+
+
+local RebirthList = AutoRebirthSection:Dropdown("Rebirths", {"1","5","10","20","100","500","2000","4500"},"","Dropdown", function(p)
+    local allrebirths = {"1","5","10","20","100","500","2000","4500"}
+    for i, v in pairs(allrebirths) do
+        if v == p then
+            RebirthCout = i
+        end
+    end
+end)
+
+local ToggleAutoRebirth = AutoRebirthSection:Toggle("Auto Rebirth", false ,"Toggle", function(ar)
+    getgenv().autorebirth = ar
+    while true do
+        if getgenv().autorebirth == false then return end
+        game:GetService("ReplicatedStorage").Events.Rebirth:FireServer(RebirthCout)
+        wait(0.1)
+        end
+end)
+
+
+
+
+
+
+local TeleportList = TeleportSection:Dropdown("Teleport", {"Spawn Island","Forest Island","Flower Island","Swamp Island","Snow Island","Desert Island","Death Island","Beach Island","Mines Island","Cloud Island","Coral Island","DarkHeart Island"},"","Dropdown", function(t)
+    if t == "Spawn Island" then
+        function PathTeleport()
+            game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-111.361511, 104.42395, -468.837219, 1, 0, 0, 0, 1, 0, 0, 0, 1)
+        end
+    end
+    
+    if t == "Forest Island" then
+        function PathTeleport()
+            game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-202.885727, 1000.72333, -439.327087, -0.0317287445, 0, 0.99949652, 0, 1, 0, -0.99949652, 0, -0.0317287445)
+        end
+    end
+
+    if t == "Flower Island" then
+        function PathTeleport()
+            game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-200.524994, 1564.26538, -571.654297, 1, 0, 0, 0, 1, 0, 0, 0, 1)
+        end
+    end
+
+    if t == "Swamp Island" then
+        function PathTeleport()
+            game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-241.850021, 2151.71533, -678.704346, 1, 0, 0, 0, 1, 0, 0, 0, 1)
+        end
+    end
+
+    if t == "Snow Island" then
+        function PathTeleport()
+            game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-242.325043, 2969.51538, -447.929382, 1, 0, 0, 0, 1, 0, 0, 0, 1)
+        end
+    end
+    
+    if t == "Desert Island" then
+        function PathTeleport()
+            game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-216.650024, 4265.46533, -739.679321, 1, 0, 0, 0, 1, 0, 0, 0, 1)
+        end
+    end
+    if t == "Death Island" then
+        function PathTeleport()
+            game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-343.587402, 5447.80566, -483.879364, 1, 0, 0, 0, 1, 0, 0, 0, 1)
+        end
+    end
+    if t == "Beach Island" then
+        function PathTeleport()
+            game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-180.137405, 6903.85596, -483.879364, 1, 0, 0, 0, 1, 0, 0, 0, 1)
+        end
+    end
+    if t == "Mines Island" then
+        function PathTeleport()
+            game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-318.437378, 8400.55566, -483.879364, 1, 0, 0, 0, 1, 0, 0, 0, 1)
+        end
+    end
+    if t == "Cloud Island" then
+        function PathTeleport()
+            game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-350.13739, 11230.5557, -177.879364, 1, 0, 0, 0, 1, 0, 0, 0, 1)
+        end
+    end
+    if t == "Coral Island" then
+        function PathTeleport()
+            game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-462.037384, 13824.5557, -556.179382, 1, 0, 0, 0, 1, 0, 0, 0, 1)
+        end
+    end
+    if t == "DarkHeart Island" then
+        function PathTeleport()
+            game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-450.837433, 17200.5547, -554.379333, 1, 0, 0, 0, 1, 0, 0, 0, 1)
+        end
+    end
+
+end)
+
+local Teleport = TeleportSection:Toggle("Teleport", false,"Toggle", function(d)
+    getgenv().autodarkrebirth = d
+    while true do
+        if getgenv().autodarkrebirth == false then return end
+        PathTeleport()
+        wait(0.1)
+    end
+end)
+
+
+
+
+
+local CurrentEgg
+
+local Eggs = AutoBuyEggsSection:Dropdown("Eggs", {"20M Egg", "Starter Egg", "Wood Egg", "Jungle Egg", "Forest Egg", " Bee Egg", "Swamp Egg", "Snow Egg", "Desert Egg", "Death Egg", "Beach Egg", "Mine Egg", "Cloud Egg", "Coral Egg", "Darkheart Egg"},"","Dropdown", function(cegg)
+    CurrentEgg = cegg
+end)
+
+local ToggleAutoBuyEgg = AutoBuyEggsSection:Toggle("Auto Egg", false ,"Toggle", function(ae)
+    getgenv().autoegg = ae
+    while true do
+        if getgenv().autoegg == false then return end
+        local args = {
+    [1] = {},
+    [2] = CurrentEgg,
+    [3] = 1
+}
+        game:GetService("ReplicatedStorage").Events.HatchEgg:InvokeServer(unpack(args))
+        wait()    
+    end
+end)
+
+
+local ToggleAutoBuyUpgrades = AutoUpgradesSection:Toggle("Auto Buy All Upgrades ", false ,"Toggle", function(ae)
+_G.autoUpgrade = true
+while _G.autoUpgrade == true do
+    local args = {
+        [1] = "gemMultiplierUpgrade"
+    }
+    
+    game:GetService("ReplicatedStorage").Events.Upgrade:FireServer(unpack(args))
+    
+local args = {
+    [1] = "storageUpgrade"
+}
+
+game:GetService("ReplicatedStorage").Events.Upgrade:FireServer(unpack(args))
+end
+end
+end)
